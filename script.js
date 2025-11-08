@@ -202,6 +202,20 @@ function init(){
   // render the fixed camera list (specs should be set in the cameras array)
   renderCameras(cameras);
   document.getElementById('year').textContent = new Date().getFullYear();
+  // Video overlay: play video when overlay is tapped (helps mobile playback)
+  const heroVideo = document.getElementById('heroVideo');
+  const overlay = document.getElementById('videoPlayOverlay');
+  if(heroVideo && overlay){
+    overlay.addEventListener('click', ()=>{
+      // try to play the video; mobile requires a user gesture to enable audio
+      heroVideo.play().then(()=>{
+        overlay.parentElement.classList.add('playing');
+      }).catch(()=>{
+        // if play fails (codec/permission), still hide overlay to reveal poster
+        overlay.parentElement.classList.add('playing');
+      });
+    });
+  }
   // example: clicking install shows quick modal/alert
   document.body.addEventListener('click', (e)=>{
     const btn = e.target.closest('.install-btn');

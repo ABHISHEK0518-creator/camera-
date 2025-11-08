@@ -36,15 +36,24 @@
         <div class="hero-visual" aria-hidden="true">
           <div class="device-mock">
             <!-- Local demo video provided by user. Path: assests/video/camera.mp4.mp4 -->
-            <video
-              src="assests/video/camera.mp4.mp4"
-              controls
-              playsinline
-              loop
-              aria-label="CCTV installation video"
-              style="width:100%;height:100%;object-fit:cover;background:#000;display:block;border-radius:inherit;">
-              Your browser does not support the video tag.
-            </video>
+            <div class="video-wrapper">
+              <video
+                id="heroVideo"
+                src="assests/video/camera.mp4.mp4"
+                poster="assests/installed/installed1.png"
+                preload="metadata"
+                controls
+                playsinline
+                loop
+                aria-label="CCTV installation video"
+                style="width:100%;height:100%;object-fit:cover;background:#000;display:block;border-radius:inherit;">
+                Your browser does not support the video tag.
+              </video>
+              <button id="videoPlayOverlay" class="video-overlay" aria-label="Play video">
+                <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M4 2v20l18-10L4 2z" fill="#fff"/></svg>
+                <span>Play video</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
